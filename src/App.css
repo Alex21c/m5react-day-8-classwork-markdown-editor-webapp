@@ -16,4 +16,16 @@ html{
   font-family: "Roboto", sans-serif;
 }
 
+code{
+  background-color: rgb(241 245 249);
+  padding:1rem;
+  font-style: italic;
+  color:navy;
+  display: block;
+}
 
+blockquote{  
+  border-left: 1rem solid rgb(48, 48, 128);
+  padding:1rem;
+  position:relative;
+}

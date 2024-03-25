@@ -57,7 +57,7 @@ function App() {
 
     if(action === 'makeItBold'){
       let newText = stateMarkdownInputData.data.substring(0, selectionStart) + `**${selectedText}**` + stateMarkdownInputData.data.substring(selectionEnd);
-      // console.log(newText);
+      // //console.log(newText);
   
       // updating state
         // updateStateMarkdownInputData(newText);
@@ -103,7 +103,7 @@ function App() {
         cursorIncrementBy=2;
     }else if (action === 'makeItBulletList'){
       selectedText= selectedText.replace(/\n/g, '\n+ ');
-      console.log(selectedText);
+      //console.log(selectedText);
 
       let newText = stateMarkdownInputData.data.substring(0, selectionStart) + `+ ${selectedText}` + stateMarkdownInputData.data.substring(selectionEnd);      
   
@@ -117,7 +117,7 @@ function App() {
         cursorIncrementBy=2;
     }else if (action === 'makeItChecklist'){
       selectedText= selectedText.replace(/\n/g, '\n+ [ ] ');
-      console.log(selectedText);
+      //console.log(selectedText);
 
       let newText = stateMarkdownInputData.data.substring(0, selectionStart) + `+ [ ] ${selectedText}` + stateMarkdownInputData.data.substring(selectionEnd);      
   
@@ -133,7 +133,7 @@ function App() {
       selectedText= selectedText.split('\n');
       selectedText = selectedText.map((line, idx)=>`${idx+1}. ${line}`);
       selectedText = selectedText.join('\n');
-      // console.log(selectedText);
+      // //console.log(selectedText);
 
       let newText = stateMarkdownInputData.data.substring(0, selectionStart) + `${selectedText}` + stateMarkdownInputData.data.substring(selectionEnd);      
   

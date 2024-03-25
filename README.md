@@ -1,5 +1,6 @@
 # Module#5 React Day #8 Classwork: Markdown Editor WebApp
 ![](thumbnail.png)
+![](thumbnail2.png)
 
 ## Hosted Version of the Project:
 [m5react-day-8-classwork-markdown-editor-webapp](https://m5react-day-8-classwork-markdown-editor-webapp.vercel.app/)

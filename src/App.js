@@ -9,9 +9,9 @@ function App() {
   let defaultValueForTextarea = "# Enter title here";
   let [stateMarkdownInputData, updateStateMarkdownInputData] = useState({
     data: defaultValueForTextarea,
-    previewPanelClassNames : 'bg-stone-100 p-[1rem] displayNone ',
+    previewPanelClassNames : 'bg-stone-100 p-[1rem] displayNone overflow-x-scroll ',
     navBarControlsClassNames : 'flex gap-[1rem]',
-    inputTextAreaClassNames : 'text-[1.2rem] text-slate-900',
+    inputTextAreaClassNames : 'text-[1.2rem] text-slate-900 p-[1rem]',
     markdownBlob : null
 
 
@@ -91,7 +91,7 @@ function App() {
       });   
         cursorIncrementBy=2;
     }else if (action === 'makeItHeading'){
-      let newText = stateMarkdownInputData.data.substring(0, selectionStart) + `## ${selectedText}` + stateMarkdownInputData.data.substring(selectionEnd);      
+      let newText = stateMarkdownInputData.data.substring(0, selectionStart) + `# ${selectedText}` + stateMarkdownInputData.data.substring(selectionEnd);      
   
       // updating state
       updateStateMarkdownInputData(previousState=>{
@@ -212,7 +212,7 @@ function App() {
 ![Image](https://commonmark.org/help/images/favicon.png)
   `;
   return (
-    <div>
+    <div id='wrapperMarkDownEditor' className='flex flex-col max-w-[55rem] m-[auto]'>
       <NavBar
       toggleDisplayNone={toggleDisplayNone}
       performOperationOnText={performOperationOnText} stateMarkdownInputData={stateMarkdownInputData} updateStateMarkdownInputData={updateStateMarkdownInputData}/>

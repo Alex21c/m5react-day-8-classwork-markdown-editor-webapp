@@ -1,55 +1,60 @@
 export default function NavBar({toggleDisplayNone, performOperationOnText, stateMarkdownInputData, updateStateMarkdownInputData}){
   return (
     <header className='flex gap-[1rem] text-[1.5rem] items-center bg-stone-100 p-[2rem]'>
-      <button 
-        onClick = {
-          ()=>{
-            // make the textarea input visible
-            // make the navbar functions visible
-            // make the output hidden
-              updateStateMarkdownInputData(previousState=>{
-                return {
-                  ...previousState,
-                  navBarControlsClassNames: toggleDisplayNone(previousState.navBarControlsClassNames),
-                  previewPanelClassNames: toggleDisplayNone(previousState.previewPanelClassNames),
-                  inputTextAreaClassNames: toggleDisplayNone(previousState.inputTextAreaClassNames)
-                 }
-              });            
+      <div className="wrapperWritePreviewBtn flex gap-[1rem]">
+
+        <button 
+          onClick = {
+            ()=>{
+              // make the textarea input visible
+              // make the navbar functions visible
+              // make the output hidden
+                updateStateMarkdownInputData(previousState=>{
+                  return {
+                    ...previousState,
+                    navBarControlsClassNames: toggleDisplayNone(previousState.navBarControlsClassNames),
+                    previewPanelClassNames: toggleDisplayNone(previousState.previewPanelClassNames),
+                    inputTextAreaClassNames: toggleDisplayNone(previousState.inputTextAreaClassNames)
+                  }
+                });            
 
 
+            }
+          }      
+        className="px-[1rem] py-[.3rem] flex gap-[.5rem]">
+          <i className="fa-solid fa-pencil"></i>
+          <span>Write</span>
+        </button>
+
+        <a className="flex gap-[.5rem] items-center" href={ stateMarkdownInputData.markdownBlob && URL.createObjectURL(stateMarkdownInputData.markdownBlob)} download={"markdown_file.md"} ><i className="fa-sharp fa-solid fa-download"></i> 
+        <span className="text-[1rem]">Download</span></a>
+        <button  
+          onClick = {
+            ()=>{
+              // make the textarea input hidden
+              // make the navbar functions hidden
+              // make the output visible
+                updateStateMarkdownInputData(previousState=>{
+                  return {
+                    ...previousState,
+                    navBarControlsClassNames: toggleDisplayNone(previousState.navBarControlsClassNames),
+                    previewPanelClassNames: toggleDisplayNone(previousState.previewPanelClassNames),
+                    inputTextAreaClassNames: toggleDisplayNone(previousState.inputTextAreaClassNames)
+                  }
+                });            
+
+
+            }
           }
-        }      
-      className="px-[1rem] py-[.3rem] flex gap-[.5rem]">
-        <i className="fa-solid fa-pencil"></i>
-        <span>Write</span>
-      </button>
-
-      <a className="flex gap-[.5rem] items-center" href={ stateMarkdownInputData.markdownBlob && URL.createObjectURL(stateMarkdownInputData.markdownBlob)} download={"markdown_file.md"} ><i className="fa-sharp fa-solid fa-download"></i> 
-      <span className="text-[1rem]">Download</span></a>
-      <button  
-        onClick = {
-          ()=>{
-            // make the textarea input hidden
-            // make the navbar functions hidden
-            // make the output visible
-              updateStateMarkdownInputData(previousState=>{
-                return {
-                  ...previousState,
-                  navBarControlsClassNames: toggleDisplayNone(previousState.navBarControlsClassNames),
-                  previewPanelClassNames: toggleDisplayNone(previousState.previewPanelClassNames),
-                  inputTextAreaClassNames: toggleDisplayNone(previousState.inputTextAreaClassNames)
-                 }
-              });            
+          className="px-[1rem] py-[.3rem]  flex gap-[.5rem] ">
+          <i className="fa-regular fa-file"></i>
+          <span>Preview</span>
+          
+        </button>
+      </div>
 
 
-          }
-        }
-        className="px-[1rem] py-[.3rem]  flex gap-[.5rem] ">
-        <i className="fa-regular fa-file"></i>
-        <span>Preview</span>
-        
-      </button>
-      <div className={stateMarkdownInputData.navBarControlsClassNames}>
+      <div id='navBar' className={stateMarkdownInputData.navBarControlsClassNames}>
         <i onClick={()=>{performOperationOnText('makeItHeading')}} title='Insert Heading' className="fa-solid fa-heading cursor-pointer hover:text-blue-400 transition"></i>
         <i onClick={()=>{performOperationOnText('makeItBold')}} title='Insert Bold Text'  className="fa-solid fa-bold cursor-pointer hover:text-blue-400 transition"></i>
         <i onClick={()=>{performOperationOnText('makeItItalic')}} title='Insert Italic Text'  className="fa-solid fa-italic cursor-pointer hover:text-blue-400 transition"></i>
